@@ -529,7 +529,7 @@ jQuery.trumbowyg = {
                 .on('keydown', function (e) {
                     t._composition = (e.which === 229);
 
-                    if (e.ctrlKey) {
+                    if (e.metaKey || e.ctrlKey) {
                         t._ctrl = true;
                         var k = t.keys[String.fromCharCode(e.which).toUpperCase()];
 
@@ -545,7 +545,7 @@ jQuery.trumbowyg = {
                         return;
                     }
 
-                    if (e.ctrlKey && (e.which === 89 || e.which === 90)) {
+                    if (e.metaKey || e.ctrlKey && (e.which === 89 || e.which === 90)) {
                         t.$c.trigger('tbwchange');
                     } else if (!t._ctrl && e.which !== 17 && !t._composition) {
                         t.semanticCode(false, e.which === 13);
